@@ -2,7 +2,8 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import Footer from '$lib/components/footer.svelte';
-	import Header from '$lib/components/header.svelte';
+	import Navbar from '$lib/components/navbar.svelte';
+	import { currentPage, setCurrentPage } from '$lib/stores/navigation';
 
 	let { children } = $props();
 </script>
@@ -11,6 +12,6 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<Header />
+<Navbar currentPage={$currentPage} {setCurrentPage} />
 {@render children?.()}
 <Footer />

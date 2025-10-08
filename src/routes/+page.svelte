@@ -1,11 +1,6 @@
 <script lang="ts">
 	import Hero from '$lib/components/pages/hero.svelte';
-
-	let currentPage: 'home' | 'lessons' = 'home';
-
-	function setCurrentPage(page: 'home' | 'lessons') {
-		currentPage = page;
-	}
+	import { setCurrentPage } from '$lib/stores/navigation';
 </script>
 
-<Hero {setCurrentPage} />
+<Hero />

@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { Wand2, Code, Star } from 'lucide-svelte';
 	import Button from '../ui/button/button.svelte';
-
-	export let setCurrentPage: ((page: 'home' | 'lessons') => void) | undefined;
+	import { setCurrentPage } from '$lib/stores/navigation';
 </script>
 
 <section class="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -54,7 +53,7 @@
 				<div class="flex flex-col justify-center gap-4 sm:flex-row lg:justify-start">
 					<Button
 						size="lg"
-						onclick={() => setCurrentPage?.('lessons')}
+						onclick={() => setCurrentPage('lessons')}
 						class="border-0 bg-gradient-to-r from-purple-800 to-indigo-800 px-8 py-3 text-lg text-white hover:from-purple-700 hover:to-indigo-700"
 					>
 						<Wand2 class="mr-2 h-5 w-5" />
