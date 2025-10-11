@@ -53,11 +53,31 @@
 			<div>
 				<h3 class="mb-4 text-white">Magic Support</h3>
 				<ul class="space-y-2 text-purple-300">
-					<li><a href="#" class="transition-colors hover:text-purple-200">Help Center</a></li>
-					<li><a href="#" class="transition-colors hover:text-purple-200">Community</a></li>
-					<li><a href="#" class="transition-colors hover:text-purple-200">Discord</a></li>
-					<li><a href="#" class="transition-colors hover:text-purple-200">Contact</a></li>
-					<li><a href="#" class="transition-colors hover:text-purple-200">Bug Reports</a></li>
+					<li>
+						<button type="button" class="text-left transition-colors hover:text-purple-200"
+							>Help Center</button
+						>
+					</li>
+					<li>
+						<button type="button" class="text-left transition-colors hover:text-purple-200"
+							>Community</button
+						>
+					</li>
+					<li>
+						<button type="button" class="text-left transition-colors hover:text-purple-200"
+							>Discord</button
+						>
+					</li>
+					<li>
+						<button type="button" class="text-left transition-colors hover:text-purple-200"
+							>Contact</button
+						>
+					</li>
+					<li>
+						<button type="button" class="text-left transition-colors hover:text-purple-200"
+							>Bug Reports</button
+						>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -91,15 +111,15 @@
 			class="flex flex-col items-center justify-between border-t border-purple-500/30 pt-8 md:flex-row"
 		>
 			<div class="mb-4 flex items-center space-x-4 md:mb-0">
-				<a href="#" class="text-purple-400 transition-colors hover:text-purple-300">
+				<button type="button" class="text-purple-400 transition-colors hover:text-purple-300">
 					<Github class="h-5 w-5" />
-				</a>
-				<a href="#" class="text-purple-400 transition-colors hover:text-purple-300">
+				</button>
+				<button type="button" class="text-purple-400 transition-colors hover:text-purple-300">
 					<Twitter class="h-5 w-5" />
-				</a>
-				<a href="#" class="text-purple-400 transition-colors hover:text-purple-300">
+				</button>
+				<button type="button" class="text-purple-400 transition-colors hover:text-purple-300">
 					<Linkedin class="h-5 w-5" />
-				</a>
+				</button>
 			</div>
 
 			<div class="text-center md:text-right">

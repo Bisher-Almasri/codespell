@@ -1,0 +1,70 @@
+{
+  "id": "python-prophecies",
+  "title": "Python Prophecies",
+  "description": "Master the ancient serpent's wisdom through data divination and automation sorcery",
+  "totalLessons": 18,
+  "completedLessons": 2,
+  "estimatedTime": "12 hours reading",
+  "difficulty": "Apprentice",
+  "isUnlocked": true,
+  "color": "from-green-900 to-emerald-900",
+  "lessons": [
+    {
+      "id": "python-awakening",
+      "title": "The Serpent's Awakening",
+      "description": "Install Python and set up your mystical development environment",
+      "duration": "30 min read",
+      "difficulty": "Apprentice",
+      "isCompleted": true,
+      "isLocked": false,
+      "progress": 100,
+      "type": "guide",
+      "contentFile": "python-awakening.md",
+      "codeExamples": [
+        "print(\"The serpent awakens!\")",
+        "wizard_name = \"Apprentice\"\\nprint(f\"Greetings, {wizard_name}!\")",
+        "# This is a comment\\nmagic_level = 1\\nprint(f\"Your magic level: {magic_level}\")"
+      ]
+    },
+    {
+      "id": "python-syntax",
+      "title": "Sacred Syntax and Indentation",
+      "description": "Learn the serpent's unique language structure and whitespace magic",
+      "duration": "40 min read",
+      "difficulty": "Apprentice",
+      "isCompleted": true,
+      "isLocked": false,
+      "progress": 100,
+      "type": "article",
+      "contentFile": "python-syntax.md",
+      "codeExamples": [
+        "# Proper indentation\\nif magic_level > 5:\\n    print(\"Powerful wizard!\")\\n    cast_spell(\"fireball\")",
+        "# f-string formatting\\nname = \"Merlin\"\\nage = 1000\\nprint(f\"The wizard {name} is {age} years old\")",
+        "# Multiple assignment\\nx, y, z = 1, 2, 3\\nprint(f\"x={x}, y={y}, z={z}\")"
+      ]
+    },
+    {
+      "id": "python-data-types",
+      "title": "Elemental Data Types",
+      "description": "Master strings, numbers, lists, and dictionaries in Python",
+      "duration": "45 min read",
+      "difficulty": "Apprentice",
+      "isCompleted": false,
+      "isLocked": false,
+      "progress": 75,
+      "type": "article",
+      "contentFile": "python-data-types.md",
+      "codeExamples": [
+        "# Working with different data types\\nname = \"Wizard\"\\nlevel = 10\\nspells = [\"fireball\", \"heal\"]\\nstats = {\"health\": 100, \"mana\": 50}\\nprint(f\"{name} (Level {level}) knows {len(spells)} spells\")",
+        "# List operations\\ninventory = [\"sword\", \"potion\", \"scroll\"]\\ninventory.append(\"wand\")\\nprint(f\"Inventory: {inventory}\")",
+        "# Dictionary usage\\nwizard = {\"name\": \"Merlin\", \"level\": 50}\\nwizard[\"mana\"] = 100\\nprint(f\"Wizard: {wizard}\")"
+      ],
+      "exercises": [
+        "Create a list of your favorite spells and add a new spell to it",
+        "Build a dictionary representing a wizard with name, level, and spells",
+        "Use string methods to format a spell incantation",
+        "Convert a string of comma-separated elements into a list"
+      ]
+    }
+  ]
+}

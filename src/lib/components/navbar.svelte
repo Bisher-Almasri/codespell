@@ -60,11 +60,11 @@
 					<span>Lessons</span>
 				</button>
 
-				<Button
+				<!-- <Button
 					class="border-0 bg-gradient-to-r from-purple-700 to-indigo-700 text-white hover:from-purple-600 hover:to-indigo-600"
 				>
 					Begin Quest
-				</Button>
+				</Button> -->
 			</div>
 			<div class="md:hidden">
 				<Button variant="ghost" size="sm" onclick={toggleMenu} class="text-purple-200">
@@ -103,11 +103,11 @@
 					</button>
 
 					<div class="px-3 py-2">
-						<Button
+						<!-- <Button
 							class="w-full border-0 bg-gradient-to-r from-purple-700 to-indigo-700 text-white hover:from-purple-600 hover:to-indigo-600"
 						>
 							Begin Quest
-						</Button>
+						</Button> -->
 					</div>
 				</div>
 			</div>

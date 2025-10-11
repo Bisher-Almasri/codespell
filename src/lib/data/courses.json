@@ -1,0 +1,61 @@
+{
+  "modules": [
+    {
+      "id": "foundations",
+      "title": "Foundations of Dark Magic",
+      "description": "Master the fundamental incantations and basic spells of programming",
+      "totalLessons": 12,
+      "completedLessons": 8,
+      "estimatedTime": "5 hours reading",
+      "difficulty": "Apprentice",
+      "isUnlocked": true,
+      "color": "from-purple-900 to-indigo-900",
+      "lessons": [
+        {
+          "id": "variables",
+          "title": "Variables: Storing Mystical Energy",
+          "description": "Learn to capture and store magical essence in containers",
+          "duration": "25 min read",
+          "difficulty": "Apprentice",
+          "isCompleted": true,
+          "isLocked": false,
+          "progress": 100,
+          "type": "article"
+        },
+        {
+          "id": "functions",
+          "title": "Functions: Crafting Spell Formulas",
+          "description": "Create reusable incantations that bend reality to your will",
+          "duration": "35 min read",
+          "difficulty": "Apprentice",
+          "isCompleted": true,
+          "isLocked": false,
+          "progress": 100,
+          "type": "guide"
+        },
+        {
+          "id": "loops",
+          "title": "Loops: The Eternal Cycle",
+          "description": "Harness the power of repetition and infinite iteration",
+          "duration": "30 min read",
+          "difficulty": "Apprentice",
+          "isCompleted": false,
+          "isLocked": false,
+          "progress": 60,
+          "type": "article"
+        },
+        {
+          "id": "conditionals",
+          "title": "Conditionals: Paths of Decision",
+          "description": "Learn to create branching realities based on mystical conditions",
+          "duration": "28 min",
+          "difficulty": "Apprentice",
+          "isCompleted": false,
+          "isLocked": false,
+          "progress": 0,
+          "type": "challenge"
+        }
+      ]
+    }
+  ]
+}

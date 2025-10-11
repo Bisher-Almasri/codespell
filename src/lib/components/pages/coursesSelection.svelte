@@ -1,91 +1,41 @@
 <script lang="ts">
-	import {
-		BookOpen,
-		Zap,
-		Shield,
-		Sparkles,
-		Code,
-		Database,
-		Palette,
-		Globe,
-	} from 'lucide-svelte';
+	import { BookOpen, Zap, Shield, Sparkles, Code, Database, Palette, Globe } from 'lucide-svelte';
 	import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
 	import { Button } from '../ui/button';
 	import { Badge } from '../ui/badge';
+	import { setCurrentPage } from '$lib/stores/navigation';
 
 	const courses = [
 		{
-			title: 'JavaScript Enchantments',
+			title: 'Foundations of Dark Magic',
 			description:
-				'Master the ancient art of web sorcery with JavaScript spells that bring websites to life.',
+				'Master the fundamental incantations and basic spells of programming, including the Python serpent.',
 			icon: Code,
 			level: 'Apprentice',
-			duration: '8 weeks',
-			color: 'from-yellow-500 to-orange-500',
+			duration: '1 hours',
+			lessons: 13,
+			color: 'from-purple-500 to-indigo-500',
 			image:
 				'https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
 		},
 		{
-			title: 'React Rituals',
+			title: 'Web Sorcery',
 			description:
-				'Conjure powerful user interfaces with the mystical component-based magic of React.',
-			icon: Sparkles,
+				'Weave the fabric of the digital realm with HTML, CSS, and JavaScript enchantments.',
+			icon: Globe,
 			level: 'Adept',
-			duration: '10 weeks',
-			color: 'from-blue-500 to-cyan-500',
-			image:
-				'https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
-		},
-		{
-			title: 'Python Prophecies',
-			description:
-				"Unlock the secrets of data divination and automation with Python's powerful incantations.",
-			icon: Zap,
-			level: 'Apprentice',
-			duration: '12 weeks',
-			color: 'from-green-500 to-emerald-500',
-			image:
-				'https://images.unsplash.com/photo-1607743386760-88ac62b89b8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
-		},
-		{
-			title: 'Database Divination',
-			description:
-				'Command vast repositories of knowledge with SQL sorcery and database enchantments.',
-			icon: Database,
-			level: 'Adept',
-			duration: '6 weeks',
-			color: 'from-purple-500 to-pink-500',
-			image:
-				'https://images.unsplash.com/photo-1547931587-2841fef9d915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
-		},
-		{
-			title: 'CSS Charms',
-			description:
-				'Weave beautiful visual spells and create stunning layouts with advanced styling magic.',
-			icon: Palette,
-			level: 'Apprentice',
-			duration: '4 weeks',
-			color: 'from-pink-500 to-rose-500',
-			image:
-				'https://images.unsplash.com/photo-1547931587-2841fef9d915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
-		},
-		{
-			title: 'Full-Stack Mastery',
-			description:
-				'Become an archmage of web development by mastering both frontend and backend sorcery.',
-			icon: Shield,
-			level: 'Master',
-			duration: '16 weeks',
-			color: 'from-indigo-500 to-purple-500',
+			duration: '2 hours',
+			lessons: 16,
+			color: 'from-indigo-500 to-blue-500',
 			image:
 				'https://images.unsplash.com/photo-1547931587-2841fef9d915?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400'
 		}
 	];
 
 	const levelColors: Record<string, string> = {
-		Apprentice: 'bg-green-600',
-		Adept: 'bg-blue-600',
-		Master: 'bg-purple-600'
+		Apprentice: 'bg-green-900/50 text-green-300 border-green-600/30',
+		Adept: 'bg-yellow-900/50 text-yellow-300 border-yellow-600/30',
+		Master: 'bg-red-900/50 text-red-300 border-red-600/30'
 	};
 </script>
 
@@ -112,10 +62,10 @@
 			</p>
 		</div>
 
-		<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-			{#each courses as course, index}
+		<div class="mx-auto grid max-w-4xl gap-8 md:grid-cols-2">
+			{#each courses as course}
 				<Card
-					class="group border-purple-500/30 bg-black/40 transition-all duration-300 hover:scale-105 hover:transform hover:border-purple-400/50"
+					class="group border-purple-500/30 py-0 bg-black/40 transition-all duration-300 hover:scale-105 hover:transform hover:border-purple-400/50"
 				>
 					<div class="relative overflow-hidden rounded-t-lg">
 						<img
@@ -133,10 +83,13 @@
 
 					<CardHeader>
 						<div class="mb-2 flex items-center justify-between">
-							<Badge class={`${levelColors[course.level]} text-white`}>
+							<Badge variant="outline" class={levelColors[course.level]}>
 								{course.level}
 							</Badge>
-							<span class="text-sm text-purple-300">{course.duration}</span>
+							<div class="text-right">
+								<div class="text-sm text-purple-300">{course.duration} reading</div>
+								<div class="text-xs text-gray-400">{course.lessons} lessons</div>
+							</div>
 						</div>
 
 						<CardTitle class="text-white transition-colors group-hover:text-purple-200">
@@ -149,7 +102,8 @@
 
 					<CardContent>
 						<Button
-							class="w-full border-0 bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700"
+							class="w-full border-0 bg-gradient-to-r mb-6 from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700"
+							onclick={() => setCurrentPage('lessons')}
 						>
 							Begin This Journey
 						</Button>
@@ -158,14 +112,66 @@
 			{/each}
 		</div>
 
+		<!-- Coming Soon Courses -->
+		<div class="mt-16">
+			<h3 class="mb-8 text-center text-2xl text-gray-200">More Paths Await in the Darkness</h3>
+			<div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+				<Card class="border-purple-500/20 bg-black/20 opacity-60">
+					<CardHeader>
+						<div class="mb-2 flex items-center justify-between">
+							<Badge variant="outline" class="border-red-600/30 bg-red-900/50 text-red-300">
+								Master
+							</Badge>
+							<span class="text-xs text-gray-500">Coming Soon</span>
+						</div>
+						<CardTitle class="text-gray-300">React Rituals</CardTitle>
+						<CardDescription class="text-gray-500">
+							Conjure powerful user interfaces with component-based magic
+						</CardDescription>
+					</CardHeader>
+				</Card>
+
+				<Card class="border-purple-500/20 bg-black/20 opacity-60">
+					<CardHeader>
+						<div class="mb-2 flex items-center justify-between">
+							<Badge variant="outline" class="border-red-600/30 bg-red-900/50 text-red-300">
+								Master
+							</Badge>
+							<span class="text-xs text-gray-500">Coming Soon</span>
+						</div>
+						<CardTitle class="text-gray-300">Database Necromancy</CardTitle>
+						<CardDescription class="text-gray-500">
+							Command vast repositories of knowledge with SQL sorcery
+						</CardDescription>
+					</CardHeader>
+				</Card>
+
+				<Card class="border-purple-500/20 bg-black/20 opacity-60">
+					<CardHeader>
+						<div class="mb-2 flex items-center justify-between">
+							<Badge variant="outline" class="border-red-600/30 bg-red-900/50 text-red-300">
+								Master
+							</Badge>
+							<span class="text-xs text-gray-500">Coming Soon</span>
+						</div>
+						<CardTitle class="text-gray-300">AI Divination</CardTitle>
+						<CardDescription class="text-gray-500">
+							Harness machine learning and artificial intelligence
+						</CardDescription>
+					</CardHeader>
+				</Card>
+			</div>
+		</div>
+
 		<div class="mt-12 text-center">
 			<Button
 				size="lg"
 				variant="outline"
 				class="border-purple-400 px-8 py-3 text-lg text-purple-200 hover:bg-purple-800/20"
+				onclick={() => setCurrentPage('lessons')}
 			>
-				<Globe class="mr-2 h-5 w-5" />
-				Explore All Spellbooks
+				<BookOpen class="mr-2 h-5 w-5" />
+				Start Your Journey
 			</Button>
 		</div>
 	</div>

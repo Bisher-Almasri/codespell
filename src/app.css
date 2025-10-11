@@ -191,3 +191,126 @@
 html {
 	font-size: var(--font-size);
 }
+/* Highlight.js custom theme for dark mode */
+@import 'highlight.js/styles/github-dark.css';
+
+/* Override highlight.js styles for better integration */
+.hljs {
+	background: transparent !important;
+	color: #e5e7eb !important;
+	padding: 0 !important;
+}
+
+/* Custom syntax highlighting colors */
+.hljs-keyword {
+	color: #c084fc !important;
+	font-weight: bold !important;
+}
+
+.hljs-string {
+	color: #34d399 !important;
+}
+
+.hljs-number {
+	color: #fbbf24 !important;
+}
+
+.hljs-comment {
+	color: #6b7280 !important;
+	font-style: italic !important;
+}
+
+.hljs-function {
+	color: #60a5fa !important;
+}
+
+.hljs-class {
+	color: #f472b6 !important;
+}
+
+.hljs-variable {
+	color: #e5e7eb !important;
+}
+
+.hljs-built_in {
+	color: #a78bfa !important;
+}
+
+.hljs-literal {
+	color: #fbbf24 !important;
+}
+
+.hljs-title {
+	color: #60a5fa !important;
+	font-weight: bold !important;
+}
+
+.hljs-params {
+	color: #e5e7eb !important;
+}
+
+.hljs-attr {
+	color: #f472b6 !important;
+}
+
+.hljs-tag {
+	color: #c084fc !important;
+}
+
+.hljs-name {
+	color: #60a5fa !important;
+}
+
+.hljs-attribute {
+	color: #34d399 !important;
+}
+
+.hljs-doctag {
+	color: #a78bfa !important;
+}
+
+.hljs-meta {
+	color: #6b7280 !important;
+}
+
+.hljs-section {
+	color: #f472b6 !important;
+	font-weight: bold !important;
+}
+
+.hljs-selector-tag {
+	color: #c084fc !important;
+}
+
+.hljs-selector-id {
+	color: #60a5fa !important;
+}
+
+.hljs-selector-class {
+	color: #34d399 !important;
+}
+
+.hljs-type {
+	color: #a78bfa !important;
+}
+
+.hljs-symbol {
+	color: #fbbf24 !important;
+}
+
+.hljs-bullet {
+	color: #f472b6 !important;
+}
+
+.hljs-link {
+	color: #60a5fa !important;
+	text-decoration: underline !important;
+}
+
+.hljs-emphasis {
+	font-style: italic !important;
+}
+
+.hljs-strong {
+	font-weight: bold !important;
+}
