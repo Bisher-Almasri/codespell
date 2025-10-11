@@ -10,7 +10,8 @@
 		Scroll,
 		PenTool,
 		ChevronRight,
-		Award
+		Award,
+		Smartphone
 	} from 'lucide-svelte';
 	import Button from '../ui/button/button.svelte';
 	import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/card';
@@ -48,7 +49,6 @@
 		color: string;
 	}
 
-	
 	const baseModules: Omit<Module, 'completedLessons'>[] = [
 		{
 			id: 'foundations',
@@ -426,7 +426,6 @@
 		}
 	];
 
-	
 	$: modules = baseModules.map((baseModule) => {
 		const moduleProgress = $userProgress.modules[baseModule.id];
 		return {
@@ -443,17 +442,20 @@
 	let showAchievement: { title: string; description: string; icon: string } | null = null;
 	let previousAchievements: string[] = [];
 	let isNavigating: boolean = false;
+	let isMobile: boolean = false;
 
-	
 	onMount(() => {
+		// Check if user is on mobile device
+		isMobile =
+			/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+			window.innerWidth < 768;
+
 		baseModules.forEach((module) => {
 			progressActions.setModuleLessonCount(module.id, module.totalLessons);
 		});
 
-		
 		previousAchievements = [...$userProgress.achievements];
 
-		
 		const handleScroll = () => {
 			if (selectedLesson && selectedModule && !selectedLesson.isCompleted && !isNavigating) {
 				updateReadingProgress();
@@ -467,7 +469,6 @@
 		};
 	});
 
-	
 	$: if (selectedModule) {
 		selectedModule.lessons = selectedModule.lessons.map((lesson) => {
 			const lessonProgress = $userProgress.lessons[`${selectedModule!.id}-${lesson.id}`];
@@ -479,7 +480,6 @@
 		});
 	}
 
-	
 	async function loadLessonContent(lesson: Lesson) {
 		if (!lesson.contentPath) return;
 
@@ -499,37 +499,30 @@
 		}
 	}
 
-	
 	$: if (selectedLesson) {
-		
 		isNavigating = true;
 
-		
 		window.scrollTo({ top: 0, behavior: 'smooth' });
 
-		
 		setTimeout(() => {
 			loadLessonContent(selectedLesson!);
 			lessonStartTime = Date.now();
-			
+
 			setTimeout(() => {
 				isNavigating = false;
 			}, 500);
 		}, 300);
 	}
 
-	
 	function markLessonComplete() {
 		if (!selectedLesson || !selectedModule) return;
 
-		const timeSpent = Math.round((Date.now() - lessonStartTime) / 1000 / 60); 
+		const timeSpent = Math.round((Date.now() - lessonStartTime) / 1000 / 60);
 		progressActions.completeLesson(selectedModule.id, selectedLesson.id, timeSpent);
 
-		
 		showCompletionMessage();
 	}
 
-	
 	function goToNextLesson() {
 		if (!selectedModule || !selectedLesson) return;
 
@@ -538,13 +531,10 @@
 
 		if (nextLesson && !nextLesson.isLocked) {
 			selectedLesson = nextLesson;
-			
 		}
 	}
 
-	
 	function showCompletionMessage() {
-		
 		const newAchievements = $userProgress.achievements.filter(
 			(achievement) => !previousAchievements.includes(achievement)
 		);
@@ -557,9 +547,7 @@
 		previousAchievements = [...$userProgress.achievements];
 	}
 
-	
 	function updateReadingProgress() {
-		
 		if (!selectedLesson || !selectedModule || selectedLesson.isCompleted || isNavigating) return;
 
 		const scrollPercent = Math.min(
@@ -567,7 +555,6 @@
 			Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100)
 		);
 
-		
 		const timeSinceLoad = Date.now() - lessonStartTime;
 		if (scrollPercent >= 10 && timeSinceLoad > 2000) {
 			progressActions.updateLessonProgress(selectedModule.id, selectedLesson.id, scrollPercent);
@@ -603,7 +590,48 @@
 	};
 </script>
 
-{#if selectedLesson && selectedModule}
+{#if isMobile}
+	<div class="min-h-screen pt-20 pb-12">
+		<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+			<div class="text-center">
+				<div class="mb-8">
+					<Button
+						variant="ghost"
+						onclick={() => setCurrentPage('home')}
+						class="text-gray-400 hover:text-purple-300"
+					>
+						← Back to Home
+					</Button>
+				</div>
+
+				<Card class="border-orange-600/30 bg-gradient-to-r from-orange-900/20 to-red-900/20">
+					<CardContent class="p-8">
+						<div class="mb-6 flex justify-center">
+							<div class="rounded-full border border-orange-600/30 bg-orange-800/50 p-4">
+								<Smartphone class="h-12 w-12 text-orange-300" />
+							</div>
+						</div>
+
+						<h2 class="mb-4 text-2xl text-gray-200">Mobile Not Supported Yet</h2>
+						<p class="mb-6 leading-relaxed text-gray-400">
+							Sorry, phone isn't supported yet. The mystical coding lessons require a larger screen
+							for the best learning experience. Please visit us on a desktop or tablet to begin your
+							journey into the dark arts of programming.
+						</p>
+
+						<div class="rounded-lg border border-orange-600/20 bg-orange-900/20 p-4">
+							<h4 class="mb-2 text-orange-300">Why Desktop?</h4>
+							<p class="text-sm text-gray-400">
+								Our interactive coding lessons, syntax highlighting, and hands-on exercises are
+								optimized for larger screens to provide the best learning experience.
+							</p>
+						</div>
+					</CardContent>
+				</Card>
+			</div>
+		</div>
+	</div>
+{:else if selectedLesson && selectedModule}
 	<div class="min-h-screen pt-20 pb-12">
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			<div class="grid gap-8 lg:grid-cols-4">
@@ -744,7 +772,6 @@
 										<button
 											onclick={() => {
 												selectedLesson = lesson;
-												
 											}}
 											disabled={lesson.isLocked}
 											class="w-full rounded-lg border p-3 text-left transition-colors {selectedLesson.id ===
@@ -845,7 +872,6 @@
 						onclick={() => {
 							if (!lesson.isLocked) {
 								selectedLesson = lesson;
-								
 							}
 						}}
 					>
