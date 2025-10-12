@@ -6,7 +6,7 @@
 
 🔗 **Live Demo**: [https://codespell.vercel.app](https://codespell.vercel.app)
 
-![/video.mov](video)
+![video might take a while to load](/video.mov)
 
 ## ✨ Features
 
