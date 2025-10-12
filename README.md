@@ -6,10 +6,8 @@
 
 🔗 **Live Demo**: [https://codespell.vercel.app](https://codespell.vercel.app)
 
-<video width="100%" controls>
-  <source src="video.mov" type="video/quicktime">
-  Your browser does not support the video tag.
-</video>
+![/video.mov](video)
+
 ## ✨ Features
 
 ### 🎭 Immersive Dark Theme Experience
