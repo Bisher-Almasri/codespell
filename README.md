@@ -5,7 +5,7 @@
 **Codespell** is an immersive, dark-themed coding education platform that transforms learning programming into an enchanting journey through the mystical realms of code. Experience programming education like never before with our magical, wizard-themed interface that makes learning both engaging and memorable.
 
 🔗 **Live Demo**: [https://codespell.vercel.app](https://codespell.vercel.app)
-
+## video might take a while to load
 ![video might take a while to load](/video.mov)
 
 ## ✨ Features
