@@ -8,7 +8,7 @@
  
 ## video might take a while to load
 
-![video might take a while to load](/video.mp4)
+![video might take a while to load](/video.gif)
 
 ## What i use
 
