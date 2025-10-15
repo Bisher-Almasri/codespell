@@ -1,5 +1,5 @@
 # CodeSpell
-**Codespell** is an immersive, dark-themed coding education platform that transforms learning programming into an enchanting journey through the mystical realms of code. Experience programming education like never before with our magical, wizard-themed interface that makes learning both engaging and memorable.
+**Codespell** is an immersive, dark-themed coding education platform that transforms learning programming into an enchanting journey through the mystical realms of code. Experience programming education like never before with our magical, wizard-themed interface that makes learning both engaging and memorable. (cmon atleast allow chaggpt text, i wrote half of it so like ykykykykyykykyk)
 
 
 ## Live demo
